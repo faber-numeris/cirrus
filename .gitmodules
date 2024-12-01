@@ -1,0 +1,3 @@
+[submodule "cirrus-ui"]
+	path = cirrus-ui
+	url = git@github.com:faber-numeris/cirrus-ui.git

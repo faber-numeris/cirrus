@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Cirrus Cloud API
+  description: API to interact with Cirrus Cloud
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080
+    description: Local routes
+paths:
+  /lambda/{functionName}:
+    description: Execute a lambda function
+    post:
+      tags:
+        - Lambda
+      description: Execute a lambda function
+      operationId: LambdaFunction
+      parameters:
+        - name: functionName
+          in: path
+          required: true
+          description: Name of the lambda function
+          schema:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExampleResponse'
+
+components:
+  schemas:
+    ExampleResponse:
+      type: object
+      properties:
+        message_id:
+          type: string
+          example: 1234
+        payload:
+          type: object
+          additionalProperties: true
+          example: {
+            "propertyOne": "valueOne",
+            "propertyTwo": "valueTwo",
+          }
