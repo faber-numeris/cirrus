@@ -1,0 +1,24 @@
+services:
+  lambda-sqs:
+    image: lambda-sqs
+    build:
+      context: .
+      dockerfile: testnetwork/lambda/Dockerfile
+    environment:
+      - _LAMBDA_SERVER_PORT=3001
+      - AWS_LAMBDA_RUNTIME_API=localhost
+      - EVENT_TYPE=SQS
+
+  lambda-s3:
+    image: lambda-s3
+    build:
+      context: .
+      dockerfile: testnetwork/lambda/Dockerfile
+    environment:
+      - _LAMBDA_SERVER_PORT=3002
+      - AWS_LAMBDA_RUNTIME_API=localhost
+      - EVENT_TYPE=S3
+
+networks:
+  cirrus-network:
+    driver: bridge
