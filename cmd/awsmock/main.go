@@ -23,7 +23,7 @@ func main() {
 	http.Handle("POST /", interceptedHandler)
 	http.Handle("PUT /", interceptedHandler)
 
-	log.Println("Server is running on http://localhost:4566")
+	log.Println("AWS mock client is running on http://localhost:4566")
 	log.Fatal(http.ListenAndServe(":4566", nil))
 
 }

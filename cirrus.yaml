@@ -1,5 +1,16 @@
 # Cirrus configuration file
+
+aws:
+  region: ca-central-1
+  account: 123456789012
+
 lambdas:
-  - name: exampleLambda
+  - name: lambdasqs
     port: 3001
     host: localhost
+    arn: generate
+
+  - name: lambdas3
+    port: 3002
+    host: localhost
+    arn: generate
